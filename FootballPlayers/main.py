@@ -11,3 +11,10 @@ if page.status_code == requests.codes.ok:
 
 list_of_all_players = bs.find('table', class_="multicol").find('ul').find_all('li')
 last_ten_players = list_of_all_players[-10:]
+
+data = {
+    'year': [],
+    'country': [],
+    'player': [],
+    'team': []
+}
