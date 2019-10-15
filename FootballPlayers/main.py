@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import lxml
+import pandas as pd
 
 base_url = 'https://en.wikipedia.org/wiki/World_Soccer_(magazine)'
 
@@ -44,4 +45,7 @@ for list_item in last_ten_players:
     else:
         data['team'].append('none')
 
-print(data)
+table = pd.DataFrame(data, columns=['year', 'country', 'player', 'team'])
+table.index += 1
+
+table.to_csv('top_10_players.csv', sep=',', encoding='utf-8')
