@@ -18,3 +18,30 @@ data = {
     'player': [],
     'team': []
 }
+
+for list_item in last_ten_players:
+    year = list_item.find('span').previousSibling.split()[0]
+    if year:
+        data['year'].append(year)
+    else:
+        data['year'].append('none')
+
+    country = list_item.find('a')['title']
+    if country:
+        data['country'].append(country)
+    else:
+        data['country'].append('none')
+
+    player = list_item.find_all('a')[1].text
+    if player:
+        data['player'].append(player)
+    else:
+        data['player'].append('none')
+
+    team = list_item.find_all('a')[2].text
+    if team:
+        data['team'].append(team)
+    else:
+        data['team'].append('none')
+
+print(data)
