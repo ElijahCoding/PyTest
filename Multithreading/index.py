@@ -1,6 +1,7 @@
 import threading
 import time
 
+
 class myThread(threading.Thread):
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
@@ -10,7 +11,9 @@ class myThread(threading.Thread):
 
     def run(self):
         print("Starting " + self.name + "\n")
+        threadLock.acquire()
         print_time(self.name, self.counter, 5)
+        threadLock.release()
         print("Exiting " + self.name + "\n")
 
 def print_time(threadName, delay, counter):
