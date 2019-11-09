@@ -8,5 +8,27 @@ class Rectangle:
 
 
 class Circle:
-    def __init(self, radius):
+    def __init__(self, radius):
         self.radius = radius
+
+    def __repr__(self):
+        return "Circle(%.1f)" % self.radius
+
+    @classmethod
+    def from_rectangle(cls, rectangle):
+        radius = (rectangle.side_a ** 2 + rectangle.side_b ** 2) ** 0.5 / 2
+        return cls(radius)
+
+
+def main():
+    rectangle = Rectangle(3, 4)
+    print(rectangle)
+    
+    first_circle = Circle(1)
+    print(first_circle)
+
+    second_circle = Circle.from_rectangle(rectangle)
+    print(second_circle)
+
+if __name__ == '__main__':
+    main()
