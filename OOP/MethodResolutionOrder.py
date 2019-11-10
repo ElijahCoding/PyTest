@@ -12,6 +12,9 @@ class C(A):
 class D(B, C):
     pass
 
-obj = D()
-obj.method()
-print(D.mro())
+# obj = D()
+# # obj.method()
+# # print(D.mro())
+
+for cls in [A, B, C ,D]:
+    print(cls.__name__ + ": ", cls.mro())
