@@ -5,8 +5,13 @@ from email.mime.multipart import MIMEMultipart
 username = ""
 password = ""
 
-
-def send_mail(text='Email body', subject='hello', from_email=f"my email + {username}", to_emails=None):
+def send_mail(
+        text='Email body',
+        subject='hello',
+        from_email=f"my email + {username}",
+        to_emails=None,
+        html=None
+):
     assert isinstance(to_emails, list)
 
     msg = MIMEMultipart('alternative')
@@ -16,9 +21,9 @@ def send_mail(text='Email body', subject='hello', from_email=f"my email + {usern
 
     txt_part = MIMEText(text, 'plain')
     msg.attach(txt_part)
-
-    html_part = MIMEText("<h1>This is working</h1>", 'html')
-    msg.attach(html_part)
+    if html != None:
+        html_part = MIMEText(html, 'html')
+        msg.attach(html_part)
 
     msg_str = msg.as_string()
     # login to smtp server
