@@ -15,7 +15,7 @@ for i in my_images:
     fname = f"{i}.jpg"
     file_path = os.path.join(files_dir, fname)
     if os.path.exists(file_path):
-        print(f"skipped ${fname}")
+        print(f"skipped {fname}")
         continue
     with open(file_path, "w") as f:
         f.write("image")
