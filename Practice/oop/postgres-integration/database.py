@@ -1,16 +1,20 @@
 from psycopg2 import pool
 
-class ConnectionPool:
-    def __init__(self):
-        self.connection_pool = pool.SimpleConnectionPool(
+connection_pool = pool.SimpleConnectionPool(
             1, 1,
             database='postgres', user='postgres',
             password='root', port=54320,
             host='localhost'
         )
 
+class ConnectionFromPool:
+    def __init__(self):
+        self.connection = None
+
     def __enter__(self):
-        return self.connection_pool.getconn()
+        self.connection = connection_pool.getconn()
+        return self.connection
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        pass
+        self.connection.commit()
+        connection_pool.putconn(self.connection)
