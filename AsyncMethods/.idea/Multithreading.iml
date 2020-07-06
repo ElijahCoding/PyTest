@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/hello_threads" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/execution_pools" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/async_web/cityscape_api" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/async_web/async_cityscape_api" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (web)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
