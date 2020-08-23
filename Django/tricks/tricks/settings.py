@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # For Celery Progress Bar
     'celery_progressbar',
-    'django_celery_results'
+    'django_celery_results',
+    'celery_progress'
 ]
 
 MIDDLEWARE = [
